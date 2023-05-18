@@ -2,6 +2,9 @@
 name: 'Apptr Microservice Skaffold Build'
 description: 'Build all microservices via Skaffold and Bazel'
 inputs:
+  registry:  # id of input
+    description: 'docker registry for skaffold images'
+    required: true
   file-output:  # id of input
     description: 'JSON for images generated via skaffold build artificats'
     required: true
@@ -13,4 +16,9 @@ runs:
   image: 'Dockerfile'
   args:
     #- ${{ github.workspace }}
+    - ${{ github.sha }}
     - ${{ inputs.file-output }}
+    - ${{ inputs.registry }} 
+
+
+
