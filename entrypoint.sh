@@ -1,4 +1,8 @@
 #!/bin/sh -l
+#
+mkdir -p $(dirname $1)
+touch $1
+echo "Generating output file: "$(ls $1)
 
 skaffold build --file-output="$1" \
   --default-repo="$2" --tag="$GITHUB_SHA"
