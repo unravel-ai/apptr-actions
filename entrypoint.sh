@@ -1,7 +1,5 @@
 #!/bin/sh -l
 
-
-
-skaffold build --file-output="$2" \
-  --default-repo="$3" --tag="$1"
+skaffold build --file-output="$1" \
+  --default-repo="$2" --tag="$GITHUB_SHA"
 
