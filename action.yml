@@ -1,0 +1,16 @@
+# action.yml
+name: 'Apptr Microservice Skaffold Build'
+description: 'Build all microservices via Skaffold and Bazel'
+inputs:
+  file-output:  # id of input
+    description: 'JSON for images generated via skaffold build artificats'
+    required: true
+outputs:
+  output: # id of output
+    description: 'JSON containing skaffold artificats'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    #- ${{ github.workspace }}
+    - ${{ inputs.file-output }}
