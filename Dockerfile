@@ -2,7 +2,7 @@
 FROM ubuntu:mantic
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update < /dev/null > /dev/null
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -qq curl python3 python3-distutils gcc g++ < /dev/null > /dev/null
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -qq curl python3 python3-distutils gcc g++ node < /dev/null > /dev/null
 RUN ln -s $(which python3) /usr/local/bin/python
 
 RUN  echo "Downloading Bazelisk..."
