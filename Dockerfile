@@ -16,6 +16,7 @@ RUN curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/sk
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
 
-USER 1001
+RUN addgroup -g 1001 -S shadowuser && adduser -u 1001 -S shadowuser -G shadowuser
+USER shadowuser
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
 ENTRYPOINT ["/entrypoint.sh"]
