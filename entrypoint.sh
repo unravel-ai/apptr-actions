@@ -4,6 +4,9 @@ mkdir -p $(dirname $1)
 touch $1
 echo "Generating output file: "$(ls $1)
 
+mkdir -p ~/.cache/bazel
+mkdir -p ~/.cache/bazelisk
+
 chown $(id -g):$(id -u) -R ~/.cache
 
 skaffold build --file-output="$1" \
