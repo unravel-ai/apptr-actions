@@ -1,5 +1,5 @@
 # Container image that runs your code
-FROM ubuntu:jammy
+FROM ubuntu:focal
 
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update < /dev/null > /dev/null
@@ -9,7 +9,7 @@ RUN mv bazel-archive-keyring.gpg /usr/share/keyrings && \
   echo "deb [arch=amd64 signed-by=/usr/share/keyrings/bazel-archive-keyring.gpg] https://storage.googleapis.com/bazel-apt stable jdk1.8" |  tee /etc/apt/sources.list.d/bazel.list
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update < /dev/null > /dev/null
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -qq python3.10 python3.10-dev python3.10-distutils bazel \
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -qq python3.8 python3.8-dev python3.8-distutils bazel \
   gcc g++ cmake nodejs git build-essential < /dev/null > /dev/null
 
 RUN ln -s $(which python3) /usr/local/bin/python
