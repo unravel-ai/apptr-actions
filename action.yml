@@ -2,6 +2,12 @@
 name: 'Apptr Microservice Skaffold Build'
 description: 'Build all microservices via Skaffold and Bazel'
 inputs:
+  bazel-cache-s3-id: 
+    description: 'bazel remote cache s3 bucket id'
+    required: true
+  bazel-cache-s3-key:
+    description: 'bazel remote cache s3 bucket secret'
+    required: true
   registry:  # id of input
     description: 'docker registry for skaffold images'
     required: true
@@ -14,6 +20,9 @@ outputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  env: 
+    BAZEL_REMOTE_CACHE_S3_ID: ${{ inputs.bazel-cache-s3-id }}
+    BAZEL_REMOTE_CACHE_S3_KEY: ${{ inputs.bazel-cache-s3-key }}
   args:
     - ${{ inputs.file-output }}
     - ${{ inputs.registry }} 

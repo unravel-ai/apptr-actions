@@ -18,6 +18,10 @@ RUN echo "Downloading Skaffold..."
 RUN curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-amd64 && \
   install skaffold /usr/local/bin
 
+RUN echo "Downloading Bazel Remote..."
+RUN curl -Lo bazel-remote https://github.com/buchgr/bazel-remote/releases/download/v2.4.1/bazel-remote-2.4.1-linux-x86_64 && \
+  install bazel-remote /usr/local/bin
+
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
 
