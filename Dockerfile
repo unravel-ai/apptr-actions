@@ -27,6 +27,6 @@ COPY entrypoint.sh /entrypoint.sh
 
 RUN groupadd -g 1001 shadowuser && useradd --system -m -u 1001 -g shadowuser shadowuser
 
-#USER shadowuser
+USER shadowuser
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
 ENTRYPOINT ["/entrypoint.sh"]
