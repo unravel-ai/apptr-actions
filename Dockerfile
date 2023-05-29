@@ -25,8 +25,8 @@ RUN curl -Lo bazel-remote https://github.com/buchgr/bazel-remote/releases/downlo
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
 
-RUN groupadd -g 1001 shadowuser && useradd --system -m -u 1001 -g shadowuser shadowuser
+#RUN groupadd -g 1001 shadowuser && useradd --system -m -u 1001 -g shadowuser shadowuser
 
-USER shadowuser
+#USER shadowuser
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
 ENTRYPOINT ["/entrypoint.sh"]
