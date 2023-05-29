@@ -10,7 +10,7 @@ RUN mv bazel-archive-keyring.gpg /usr/share/keyrings && \
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update < /dev/null > /dev/null
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -qq python3.10 python3.10-dev python3.10-distutils bazel \
-  gcc g++ cmake nodejs git build-essential < /dev/null > /dev/null
+  gcc g++ cmake nodejs git build-essential docker-ce-cli < /dev/null > /dev/null
 
 RUN ln -s $(which python3) /usr/local/bin/python
 
